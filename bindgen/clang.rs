@@ -1463,8 +1463,10 @@ impl Type {
             static ASSOC_TYPE_RE: OnceLock<regex::Regex> = OnceLock::new();
             ASSOC_TYPE_RE
                 .get_or_init(|| {
-                    regex::Regex::new(r"typename type\-parameter\-\d+\-\d+::.+")
-                        .unwrap()
+                    regex::Regex::new(
+                        r"typename type\-parameter\-[0-9]+\-[0-9]+::.+",
+                    )
+                    .unwrap()
                 })
                 .is_match(spelling.as_ref())
         }

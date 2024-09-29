@@ -29,14 +29,14 @@ shlex = "1"
 
 [features]
 default = ["logging", "runtime"]
-logging = ["bindgen/logging", "dep:env_logger", "dep:log"]
+logging = ["bindgen/logging", "env_logger", "log"]
 static = ["bindgen/static"]
 runtime = ["bindgen/runtime"]
 prettyplease = ["bindgen/prettyplease"]
 
 ## The following features are for internal use and they shouldn't be used if
 ## you're not hacking on bindgen
-# Features used for CI testing 
+# Features used for CI testing
 __testing_only_extra_assertions = ["bindgen/__testing_only_extra_assertions"]
 __testing_only_libclang_9 = ["bindgen/__testing_only_libclang_9"]
 __testing_only_libclang_16 = ["bindgen/__testing_only_libclang_16"]

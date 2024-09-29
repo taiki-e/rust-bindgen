@@ -27,26 +27,26 @@ path = "lib.rs"
 [dependencies]
 annotate-snippets = { version = "0.9.1", features = ["color"], optional = true }
 bitflags = "2.2.1"
-cmacro = "0.2.2"
+cmacro = { git = "https://github.com/taiki-e/cmacro-rs", branch = "dev" }
 clang-sys = { version = "1", features = ["clang_6_0"] }
 itertools = { version = ">=0.10,<0.14", default-features = false }
 log = { version = "0.4", optional = true }
 prettyplease = { version = "0.2.7", optional = true, features = ["verbatim"] }
 proc-macro2 = { version = "1", default-features = false }
 quote = { version = "1", default-features = false }
-regex = { version = "1.5.3", default-features = false, features = ["std", "unicode-perl"] }
+regex = { version = "1.5.3", default-features = false, features = ["std"] }
 rustc-hash = "1.0.1"
 shlex = "1"
 syn = { version = "2.0", features = ["full", "extra-traits", "visit-mut"] }
 
 [features]
-default = ["logging", "prettyplease", "runtime"]
-logging = ["dep:log"]
+default = ["prettyplease", "runtime"]
+logging = ["log"]
 static = ["clang-sys/static"]
 runtime = ["clang-sys/runtime"]
 # This feature is no longer used for anything and should be removed in bindgen 0.70
 which-rustfmt = []
-experimental = ["dep:annotate-snippets"]
+experimental = ["annotate-snippets"]
 
 ## The following features are for internal use and they shouldn't be used if
 ## you're not hacking on bindgen

@@ -1817,7 +1817,7 @@ impl Item {
         ) -> bool {
             static ANON_TYPE_PARAM_RE: OnceLock<regex::Regex> = OnceLock::new();
             let anon_type_param_re = ANON_TYPE_PARAM_RE.get_or_init(|| {
-                regex::Regex::new(r"^type\-parameter\-\d+\-\d+$").unwrap()
+                regex::Regex::new(r"^type\-parameter\-[0-9]+\-[0-9]+$").unwrap()
             });
 
             if refd.kind() != clang_sys::CXCursor_TemplateTypeParameter {
